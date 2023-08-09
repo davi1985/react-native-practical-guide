@@ -7,7 +7,7 @@ export const GoalsItems = ({ courseGoals, onDeleteItem }) => (
       alwaysBounceVertical={false}
       data={courseGoals}
       renderItem={({ item }) => (
-        <GoalItem text={item.text} onDeleteItem={onDeleteItem} />
+        <GoalItem text={item.text} id={item.id} onDeleteItem={onDeleteItem} />
       )}
       keyExtractor={(item) => item.id}
     />
