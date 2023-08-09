@@ -1,30 +1,92 @@
-import { StyleSheet, Text, View, Button } from "react-native";
+import { useState } from "react";
+import {
+  Button,
+  StyleSheet,
+  TextInput,
+  View,
+  Text,
+  ScrollView,
+  FlatList,
+} from "react-native";
 
 export default function App() {
+  const [enteredGoalText, setEnteredGoalText] = useState("");
+  const [courseGoals, setCourseGoals] = useState([]);
+
+  const goalInputHandler = (enteredText) => {
+    setEnteredGoalText(enteredText);
+  };
+
+  const addGoalHandler = () => {
+    setCourseGoals((currentCourseGoals) => [
+      ...currentCourseGoals,
+      {
+        text: enteredGoalText,
+        key: Math.random().toString(),
+      },
+    ]);
+  };
+
   return (
-    <View style={styles.container}>
-      <View>
-        <Text style={styles.dummyText}>Another piece of text!</Text>
+    <View style={styles.appContainer}>
+      <View style={styles.inputContainer}>
+        <TextInput
+          style={styles.textInput}
+          placeholder="Your course goal!"
+          onChangeText={goalInputHandler}
+        />
+
+        <Button title="Add goal" onPress={addGoalHandler} />
       </View>
 
-      <Text style={styles.dummyText}>Hello React</Text>
-
-      <Button title="Click Me" />
+      <View style={styles.goalsContainer}>
+        <FlatList
+          alwaysBounceVertical={false}
+          data={courseGoals}
+          renderItem={({ item }) => (
+            <View style={styles.goalItem}>
+              <Text style={styles.goalText}>{item.text}</Text>
+            </View>
+          )}
+        />
+      </View>
     </View>
   );
 }
 
 const styles = StyleSheet.create({
-  container: {
+  appContainer: {
     flex: 1,
-    backgroundColor: "#fff",
-    alignItems: "center",
-    justifyContent: "center",
+    paddingTop: 50,
+    paddingHorizontal: 16,
   },
-  dummyText: {
-    margin: 16,
-    borderWidth: 2,
-    borderColor: "#f00",
-    padding: 16,
+  inputContainer: {
+    flex: 1,
+    flexDirection: "row",
+    justifyContent: "space-between",
+    alignItems: "center",
+    marginBottom: 24,
+    borderBottomWidth: 1,
+    borderBottomColor: "#ccc",
+  },
+  textInput: {
+    borderWidth: 1,
+    borderColor: "#ccc",
+    width: "70%",
+    marginRight: 8,
+    padding: 8,
+    borderRadius: 8,
+  },
+  goalsContainer: {
+    flex: 5,
+  },
+  goalItem: {
+    margin: 8,
+    padding: 8,
+    borderRadius: 8,
+    backgroundColor: "#5e0acc",
+  },
+  goalText: {
+    color: "#fff",
   },
 });
