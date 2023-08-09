@@ -21,8 +21,8 @@ export default function App() {
     setCourseGoals((currentCourseGoals) => [
       ...currentCourseGoals,
       {
+        id: Math.random().toString(),
         text: enteredGoalText,
-        key: Math.random().toString(),
       },
     ]);
   };
@@ -48,6 +48,7 @@ export default function App() {
               <Text style={styles.goalText}>{item.text}</Text>
             </View>
           )}
+          keyExtractor={(item) => item.id}
         />
       </View>
     </View>
