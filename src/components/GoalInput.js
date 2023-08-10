@@ -80,3 +80,4 @@ const styles = StyleSheet.create({
     marginHorizontal: 8,
   },
 });
+// debugger option
