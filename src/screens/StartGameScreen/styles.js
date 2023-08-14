@@ -1,13 +1,13 @@
-import { StyleSheet } from "react-native";
+import { StyleSheet, Dimensions } from "react-native";
 
 import { COLORS } from "../../constants/colors";
 
 export const styles = StyleSheet.create({
-  rootContainer: {
+  rootContainer: (height) => ({
     flex: 1,
-    marginTop: 100,
+    marginTop: height < 380 ? 30 : 100,
     alignItems: "center",
-  },
+  }),
   numberInput: {
     width: 50,
     height: 50,

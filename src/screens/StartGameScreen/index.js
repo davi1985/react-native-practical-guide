@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Alert, TextInput, View } from "react-native";
+import { Alert, TextInput, View, useWindowDimensions } from "react-native";
 
 import { InstructionText } from "../../components/ui/InstructionText";
 import { PrimaryButton } from "../../components/ui/PrimaryButton";
@@ -13,6 +13,8 @@ const MAX_NUMBER_VALUE = 99;
 
 export const StartGameScreen = ({ onPickNumber }) => {
   const [enteredNumber, setEnteredNumber] = useState("");
+
+  const { height, width } = useWindowDimensions();
 
   const numberInputHandler = (enteredText) => {
     setEnteredNumber(enteredText);
@@ -47,7 +49,7 @@ export const StartGameScreen = ({ onPickNumber }) => {
   };
 
   return (
-    <View style={styles.rootContainer}>
+    <View style={styles.rootContainer(height)}>
       <Title>Guess My Number</Title>
 
       <Card>
