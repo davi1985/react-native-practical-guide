@@ -3,6 +3,9 @@ import { StyleSheet, Dimensions } from "react-native";
 import { COLORS } from "../../constants/colors";
 
 export const styles = StyleSheet.create({
+  screen: {
+    flex: 1,
+  },
   rootContainer: (height) => ({
     flex: 1,
     marginTop: height < 380 ? 30 : 100,
