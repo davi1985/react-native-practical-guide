@@ -1,10 +1,12 @@
 import { useState } from "react";
-import { Alert, StyleSheet, TextInput, View } from "react-native";
-import { Card } from "../components/ui/Card";
-import { InstructionText } from "../components/ui/InstructionText";
-import { PrimaryButton } from "../components/ui/PrimaryButton";
-import { Title } from "../components/ui/Title";
-import { COLORS } from "../constants/colors";
+import { Alert, TextInput, View } from "react-native";
+
+import { InstructionText } from "../../components/ui/InstructionText";
+import { PrimaryButton } from "../../components/ui/PrimaryButton";
+import { Title } from "../../components/ui/Title";
+import { Card } from "../../components/ui/Card";
+
+import { styles } from "./styles";
 
 const MIN_NUMBER_VALUE = 0;
 const MAX_NUMBER_VALUE = 99;
@@ -62,11 +64,11 @@ export const StartGameScreen = ({ onPickNumber }) => {
         />
 
         <View style={styles.buttonsContainer}>
-          <View style={styles.buttonContainter}>
+          <View style={styles.buttonContainer}>
             <PrimaryButton onPress={resetInputHandler}>Reset</PrimaryButton>
           </View>
 
-          <View style={styles.buttonContainter}>
+          <View style={styles.buttonContainer}>
             <PrimaryButton onPress={confirmInputHandler}>Confirm</PrimaryButton>
           </View>
         </View>
@@ -74,28 +76,3 @@ export const StartGameScreen = ({ onPickNumber }) => {
     </View>
   );
 };
-
-const styles = StyleSheet.create({
-  rootContainer: {
-    flex: 1,
-    marginTop: 100,
-    alignItems: "center",
-  },
-  numberInput: {
-    width: 50,
-    height: 50,
-    fontSize: 32,
-    borderBottomColor: COLORS.accent500,
-    borderBottomWidth: 2,
-    color: COLORS.accent500,
-    marginVertical: 8,
-    fontWeight: "bold",
-    textAlign: "center",
-  },
-  buttonsContainer: {
-    flexDirection: "row",
-  },
-  buttonContainter: {
-    flex: 1,
-  },
-});

@@ -1,11 +1,15 @@
-import { StyleSheet, Text, View, Alert } from "react-native";
-import { Title } from "../components/ui/Title";
+import { Ionicons } from "@expo/vector-icons";
 import { useEffect, useState } from "react";
-import { generateRandomBetween } from "../utils";
-import { NumberContainer } from "../components/game/NumberContainer";
-import { PrimaryButton } from "../components/ui/PrimaryButton";
-import { InstructionText } from "../components/ui/InstructionText";
-import { Card } from "../components/ui/Card";
+import { Alert, StyleSheet, View } from "react-native";
+
+import { NumberContainer } from "../../components/game/NumberContainer";
+import { Card } from "../../components/ui/Card";
+import { InstructionText } from "../../components/ui/InstructionText";
+import { PrimaryButton } from "../../components/ui/PrimaryButton";
+import { Title } from "../../components/ui/Title";
+
+import { generateRandomBetween } from "../../utils";
+import { styles } from "./styles";
 
 let MIN_BOUNDARY = 1;
 let MAX_BOUNDARY = 100;
@@ -58,15 +62,22 @@ export const GameScreen = ({ userNumber, onGameOver }) => {
       <NumberContainer>{currentGuess}</NumberContainer>
 
       <Card>
-        <InstructionText>Hight or lower ?</InstructionText>
+        <InstructionText style={styles.instructionText}>
+          Hight or lower ?
+        </InstructionText>
 
-        <View>
-          <PrimaryButton onPress={nextGuessHandler.bind(this, "lower")}>
-            -
-          </PrimaryButton>
-          <PrimaryButton onPress={nextGuessHandler.bind(this, "greater")}>
-            +
-          </PrimaryButton>
+        <View style={styles.buttonsContainer}>
+          <View style={styles.buttonContainer}>
+            <PrimaryButton onPress={nextGuessHandler.bind(this, "lower")}>
+              <Ionicons name="md-remove" size={24} color="white" />
+            </PrimaryButton>
+          </View>
+
+          <View style={styles.buttonContainer}>
+            <PrimaryButton onPress={nextGuessHandler.bind(this, "greater")}>
+              <Ionicons name="md-add" size={24} color="white" />
+            </PrimaryButton>
+          </View>
         </View>
       </Card>
 
@@ -74,10 +85,3 @@ export const GameScreen = ({ userNumber, onGameOver }) => {
     </View>
   );
 };
-
-const styles = StyleSheet.create({
-  screen: {
-    flex: 1,
-    padding: 24,
-  },
-});

@@ -1,11 +1,7 @@
-import { StyleSheet, View } from "react-native";
-import { COLORS } from "../../constants/colors";
+import { StyleSheet } from "react-native";
+import { COLORS } from "../../../constants/colors";
 
-export const Card = ({ children }) => {
-  return <View style={styles.card}>{children}</View>;
-};
-
-const styles = StyleSheet.create({
+export const styles = StyleSheet.create({
   card: {
     justifyContent: "center",
     alignItems: "center",
