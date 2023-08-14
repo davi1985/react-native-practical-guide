@@ -1,7 +1,8 @@
 import { Ionicons } from "@expo/vector-icons";
 import { useEffect, useState } from "react";
-import { Alert, FlatList, StyleSheet, Text, View } from "react-native";
+import { Alert, FlatList, View } from "react-native";
 
+import { GuessLogItem } from "../../components/game/GuessLogItem";
 import { NumberContainer } from "../../components/game/NumberContainer";
 import { Card } from "../../components/ui/Card";
 import { InstructionText } from "../../components/ui/InstructionText";
@@ -9,11 +10,16 @@ import { PrimaryButton } from "../../components/ui/PrimaryButton";
 import { Title } from "../../components/ui/Title";
 
 import { generateRandomBetween } from "../../utils";
-import { styles } from "./styles";
-import { GuessLogItem } from "../../components/game/GuessLogItem";
 
-let minBoundary = 1;
-let maxBoundary = 100;
+import { styles } from "./styles";
+
+let MIN_BOUNDARY = 1;
+let MAX_BOUNDARY = 100;
+
+const directions = {
+  LOWER: "lower",
+  GREATER: "greater",
+};
 
 export const GameScreen = ({ userNumber, onGameOver }) => {
   const initialGuess = generateRandomBetween(1, 100, userNumber);
@@ -28,13 +34,13 @@ export const GameScreen = ({ userNumber, onGameOver }) => {
   }, [currentGuess, userNumber, onGameOver]);
 
   useEffect(() => {
-    (minBoundary = 1), (maxBoundary = 100);
+    (MIN_BOUNDARY = 1), (MAX_BOUNDARY = 100);
   }, []);
 
   const nextGuessHandler = (direction) => {
     if (
-      (direction === "lower" && currentGuess < userNumber) ||
-      (direction === "greater" && currentGuess > userNumber)
+      (direction === directions.LOWER && currentGuess < userNumber) ||
+      (direction === directions.GREATER && currentGuess > userNumber)
     ) {
       Alert.alert("Don't lie!", "You know that this is wrong...", [
         { text: "Sorry!", style: "cancel" },
@@ -43,15 +49,15 @@ export const GameScreen = ({ userNumber, onGameOver }) => {
       return;
     }
 
-    if (direction === "lower") {
-      maxBoundary = currentGuess;
+    if (direction === directions.LOWER) {
+      MAX_BOUNDARY = currentGuess;
     } else {
-      minBoundary = currentGuess + 1;
+      MIN_BOUNDARY = currentGuess + 1;
     }
 
     const newRndNumber = generateRandomBetween(
-      minBoundary,
-      maxBoundary,
+      MIN_BOUNDARY,
+      MAX_BOUNDARY,
       currentGuess
     );
 

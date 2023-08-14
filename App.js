@@ -5,10 +5,10 @@ import { StatusBar } from "expo-status-bar";
 import { useCallback, useEffect, useState } from "react";
 import { ImageBackground, SafeAreaView, StyleSheet } from "react-native";
 
-import { COLORS } from "./constants/colors";
-import { GameOverScreen } from "./screens/GameOverScreen";
-import { GameScreen } from "./screens/GameScreen";
-import { StartGameScreen } from "./screens/StartGameScreen";
+import { COLORS } from "./src/constants/colors";
+import { GameOverScreen } from "./src/screens/GameOverScreen";
+import { GameScreen } from "./src/screens/GameScreen";
+import { StartGameScreen } from "./src/screens/StartGameScreen";
 
 export default function App() {
   const [userNumber, setUserNumber] = useState();
