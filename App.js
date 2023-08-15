@@ -1,15 +1,11 @@
-import { StyleSheet } from "react-native";
+import { StatusBar } from "expo-status-bar";
 import { CategoriesScreen } from "./src/screens/CategoriesScreen";
 
 export default function App() {
-  return <CategoriesScreen />;
+  return (
+    <>
+      <StatusBar />
+      <CategoriesScreen />
+    </>
+  );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: "#fff",
-    alignItems: "center",
-    justifyContent: "center",
-  },
-});
