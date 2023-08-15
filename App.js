@@ -81,23 +81,25 @@ export default function App() {
   }
 
   return (
-    <LinearGradient
-      style={styles.rootScreen}
-      colors={[COLORS.primary700, COLORS.yellow500]}
-    >
-      <ImageBackground
-        source={require("./assets/images/background.png")}
-        resizeMode="cover"
+    <>
+      <StatusBar style="light" />
+
+      <LinearGradient
         style={styles.rootScreen}
-        imageStyle={styles.backgroundImage}
+        colors={[COLORS.primary700, COLORS.yellow500]}
       >
-        <StatusBar style="light" />
-        
-        <SafeAreaView style={styles.rootScreen} onLayout={onLayoutRootView}>
-          {screen}
-        </SafeAreaView>
-      </ImageBackground>
-    </LinearGradient>
+        <ImageBackground
+          source={require("./assets/images/background.png")}
+          resizeMode="cover"
+          style={styles.rootScreen}
+          imageStyle={styles.backgroundImage}
+        >
+          <SafeAreaView style={styles.rootScreen} onLayout={onLayoutRootView}>
+            {screen}
+          </SafeAreaView>
+        </ImageBackground>
+      </LinearGradient>
+    </>
   );
 }
 
@@ -106,6 +108,6 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   backgroundImage: {
-    opacity: 0.9,
+    opacity: 1,
   },
 });
