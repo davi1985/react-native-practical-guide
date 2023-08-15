@@ -1,7 +1,5 @@
-import { StyleSheet, Dimensions } from "react-native";
+import { StyleSheet } from "react-native";
 import { COLORS } from "../../constants/colors";
-
-const deviceWidth = Dimensions.get("window").width;
 
 export const styles = StyleSheet.create({
   screen: {
@@ -14,9 +12,6 @@ export const styles = StyleSheet.create({
     alignItems: "center",
   },
   imageContainer: {
-    width: deviceWidth < 380 ? 150 : 300,
-    height: deviceWidth < 380 ? 150 : 300,
-    borderRadius: deviceWidth < 380 ? 75 : 150,
     borderWidth: 3,
     borderColor: COLORS.primary800,
     overflow: "hidden",

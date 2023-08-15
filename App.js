@@ -92,6 +92,7 @@ export default function App() {
         imageStyle={styles.backgroundImage}
       >
         <StatusBar style="light" />
+        
         <SafeAreaView style={styles.rootScreen} onLayout={onLayoutRootView}>
           {screen}
         </SafeAreaView>
@@ -105,6 +106,6 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   backgroundImage: {
-    opacity: 0.5,
+    opacity: 0.9,
   },
 });
