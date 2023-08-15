@@ -3,12 +3,12 @@ import { COLORS } from "../../../constants/colors";
 
 export const styles = StyleSheet.create({
   listItem: {
-    borderColor: COLORS.primary800,
+    borderColor: COLORS.purple800,
     borderWidth: 1,
     borderRadius: 40,
     padding: 12,
     marginVertical: 8,
-    backgroundColor: COLORS.accent500,
+    backgroundColor: COLORS.yellow500,
     flexDirection: "row",
     justifyContent: "space-between",
     width: "100%",

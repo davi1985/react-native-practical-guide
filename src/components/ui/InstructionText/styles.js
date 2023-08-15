@@ -4,7 +4,7 @@ import { COLORS } from "../../../constants/colors";
 export const styles = StyleSheet.create({
   instructionText: {
     fontFamily: "open-sans",
-    color: COLORS.accent500,
+    color: COLORS.yellow500,
     fontSize: 24,
   },
 });

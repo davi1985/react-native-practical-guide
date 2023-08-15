@@ -9,7 +9,7 @@ export const styles = StyleSheet.create({
     alignItems: "center",
     padding: 16,
     marginTop: deviceWidth < 380 ? 18 : 36,
-    backgroundColor: COLORS.primary800,
+    backgroundColor: COLORS.purple800,
     marginHorizontal: 24,
     borderRadius: 16,
     elevation: 4,

@@ -7,7 +7,7 @@ const deviceWidth = Dimensions.get("window").width;
 export const styles = StyleSheet.create({
   container: {
     borderWidth: 4,
-    borderColor: COLORS.accent500,
+    borderColor: COLORS.yellow500,
     margin: deviceWidth < 380 ? 12 : 24,
     padding: deviceWidth < 380 ? 12 : 24,
     borderRadius: 24,
@@ -15,7 +15,7 @@ export const styles = StyleSheet.create({
     justifyContent: "center",
   },
   numberText: {
-    color: COLORS.accent500,
+    color: COLORS.yellow500,
     fontSize: deviceWidth < 380 ? 28 : 36,
     fontFamily: "open-sans-bold",
   },

@@ -4,6 +4,9 @@ import { COLORS } from "../../constants/colors";
 const deviceWidth = Dimensions.get("window").width;
 
 export const styles = StyleSheet.create({
+  screen: {
+    flex: 1,
+  },
   rootContainer: {
     flex: 1,
     padding: 24,

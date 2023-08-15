@@ -8,7 +8,7 @@ export const styles = StyleSheet.create({
     overflow: "hidden",
   },
   buttonInnerContainer: {
-    backgroundColor: COLORS.primary500,
+    backgroundColor: COLORS.purple500,
     paddingVertical: 8,
     paddingHorizontal: 16,
     elevation: 2,

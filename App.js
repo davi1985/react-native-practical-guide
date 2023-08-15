@@ -83,7 +83,7 @@ export default function App() {
   return (
     <LinearGradient
       style={styles.rootScreen}
-      colors={[COLORS.primary700, COLORS.accent500]}
+      colors={[COLORS.primary700, COLORS.yellow500]}
     >
       <ImageBackground
         source={require("./assets/images/background.png")}
