@@ -1,8 +1,9 @@
 import { Platform, Pressable, StyleSheet, Text, View } from "react-native";
+import { Card } from "./Card";
 
 export const CategoryGridTile = ({ title, color, onPress }) => {
   return (
-    <View style={styles.gridItem}>
+    <Card style={styles.gridItem}>
       <Pressable
         android_ripple={{ color: "#ddd" }}
         style={({ pressed }) => [
@@ -15,7 +16,7 @@ export const CategoryGridTile = ({ title, color, onPress }) => {
           <Text style={styles.title}>{title}</Text>
         </View>
       </Pressable>
-    </View>
+    </Card>
   );
 };
 

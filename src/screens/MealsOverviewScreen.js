@@ -1,5 +1,5 @@
 import { StyleSheet, FlatList, View, Text } from "react-native";
-import { MEALS } from "../data/dummy-data";
+import { CATEGORIES, MEALS } from "../data/dummy-data";
 import { MealItem } from "../components/MealItem";
 
 export const MealsOverviewScreen = ({ route }) => {
@@ -9,8 +9,21 @@ export const MealsOverviewScreen = ({ route }) => {
     (mealItem) => mealItem.categoryIds.indexOf(categoryId) >= 0
   );
 
-  const renderMealItem = (itemData) => {
-    return <MealItem title={itemData.item.title} />;
+  const renderMealItem = ({ item }) => {
+    const category = CATEGORIES.filter(
+      (category) => category.id === item.categoryIds[0]
+    )[0];
+
+    const mealItemProps = {
+      title: item.title,
+      imageUrl: item.imageUrl,
+      duration: item.duration,
+      complexity: item.complexity,
+      affordability: item.affordability,
+      color: category.color,
+    };
+
+    return <MealItem {...mealItemProps} />;
   };
 
   return (
