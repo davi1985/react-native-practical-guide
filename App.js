@@ -2,7 +2,7 @@ import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
 import { registerRootComponent } from "expo";
 import { StatusBar } from "expo-status-bar";
-import { AppRegistry, Platform } from "react-native";
+import { AppRegistry, Button, Platform, Text } from "react-native";
 
 import "react-native-gesture-handler";
 
