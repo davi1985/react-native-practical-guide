@@ -43,7 +43,7 @@ export const MealItem = ({
             duration={duration}
             affordability={affordability}
             complexity={complexity}
-            color={color}
+            // color={color}
           />
         </View>
       </Pressable>
