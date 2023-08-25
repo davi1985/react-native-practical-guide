@@ -1,24 +1,22 @@
 import { Platform, Pressable, StyleSheet, Text, View } from "react-native";
 import { Card } from "./Card";
 
-export const CategoryGridTile = ({ title, color, onPress }) => {
-  return (
-    <Card style={styles.gridItem}>
-      <Pressable
-        android_ripple={{ color: "#ddd" }}
-        style={({ pressed }) => [
-          styles.button,
-          pressed ? styles.buttonPressed : null,
-        ]}
-        onPress={onPress}
-      >
-        <View style={styles.innerContainer(color)}>
-          <Text style={styles.title}>{title}</Text>
-        </View>
-      </Pressable>
-    </Card>
-  );
-};
+export const CategoryGridTile = ({ title, color, onPress }) => (
+  <Card style={styles.gridItem}>
+    <Pressable
+      android_ripple={{ color: "#ddd" }}
+      style={({ pressed }) => [
+        styles.button,
+        pressed ? styles.buttonPressed : null,
+      ]}
+      onPress={onPress}
+    >
+      <View style={styles.innerContainer(color)}>
+        <Text style={styles.title}>{title}</Text>
+      </View>
+    </Pressable>
+  </Card>
+);
 
 const styles = StyleSheet.create({
   gridItem: {

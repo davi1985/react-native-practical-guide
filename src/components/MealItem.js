@@ -5,7 +5,6 @@ import { MealDetails } from "./MealDetails";
 
 export const MealItem = ({
   id,
-  color,
   title,
   imageUrl,
   duration,
@@ -43,7 +42,6 @@ export const MealItem = ({
             duration={duration}
             affordability={affordability}
             complexity={complexity}
-            // color={color}
           />
         </View>
       </Pressable>
@@ -60,9 +58,6 @@ const styles = StyleSheet.create({
     borderRadius: 8,
     overflow: "hidden",
   },
-  // button: {
-  //   flex: 1,
-  // },
   buttonPressed: {
     opacity: 0.5,
   },
