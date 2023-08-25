@@ -26,6 +26,7 @@ export const MealsOverviewScreen = ({ route, navigation }) => {
     )[0];
 
     const mealItemProps = {
+      id: item.id,
       title: item.title,
       imageUrl: item.imageUrl,
       duration: item.duration,
