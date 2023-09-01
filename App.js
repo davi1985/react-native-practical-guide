@@ -7,12 +7,18 @@ import "react-native-gesture-handler";
 import { NavigationContainer } from "@react-navigation/native";
 import { createDrawerNavigator } from "@react-navigation/drawer";
 
+import { WelcomeScreen } from "./src/screens/WelcomeScreen";
+import { UserScreen } from "./src/screens/UserScreen";
+
 const Drawer = createDrawerNavigator();
 
 const App = () => {
   return (
     <NavigationContainer>
-      <Text>Hello World Navigation Drawer</Text>
+      <Drawer.Navigator initialRouteName="User">
+        <Drawer.Screen name="Welcome" component={WelcomeScreen} />
+        <Drawer.Screen name="User" component={UserScreen} />
+      </Drawer.Navigator>
     </NavigationContainer>
   );
 };
