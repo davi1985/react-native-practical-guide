@@ -2,7 +2,8 @@ import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
 import { registerRootComponent } from "expo";
 import { StatusBar } from "expo-status-bar";
-import { AppRegistry, Button, Platform, Text } from "react-native";
+import { AppRegistry, Platform } from "react-native";
+import { Ionicons } from "@expo/vector-icons";
 
 import "react-native-gesture-handler";
 
@@ -11,8 +12,53 @@ import { name as appName } from "./app.json";
 import { CategoriesScreen } from "./src/screens/CategoriesScreen";
 import { MealsOverviewScreen } from "./src/screens/MealsOverviewScreen";
 import { MealDetailScreen } from "./src/screens/MealDetailScreen";
+import { createDrawerNavigator } from "@react-navigation/drawer";
+import { FavoritesScreen } from "./src/screens/FavoritesScreen";
 
 const Stack = createStackNavigator();
+const Drawer = createDrawerNavigator();
+
+const DrawerNavigation = () => {
+  return (
+    <Drawer.Navigator
+      screenOptions={{
+        headerStyle: {
+          backgroundColor: "#341401",
+        },
+        headerTintColor: "white",
+        sceneContainerStyle: {
+          backgroundColor: "#3f2f25",
+        },
+        drawerContentStyle: {
+          backgroundColor: "#351401",
+        },
+        drawerInactiveTintColor: "white",
+        drawerActiveTintColor: "#351401",
+        drawerActiveBackgroundColor: "#e4baa1",
+      }}
+    >
+      <Drawer.Screen
+        name="Categories"
+        component={CategoriesScreen}
+        options={{
+          title: "All Categories",
+          drawerIcon: ({ color, size }) => (
+            <Ionicons name="list" color={color} size={size} />
+          ),
+        }}
+      />
+      <Drawer.Screen
+        name="Favorites"
+        component={FavoritesScreen}
+        options={{
+          drawerIcon: ({ color, size }) => (
+            <Ionicons name="star" color={color} size={size} />
+          ),
+        }}
+      />
+    </Drawer.Navigator>
+  );
+};
 
 export default function App() {
   return (
@@ -30,16 +76,20 @@ export default function App() {
           }}
         >
           <Stack.Screen
-            name="MealsCategories"
-            component={CategoriesScreen}
+            name="Drawer"
+            component={DrawerNavigation}
             options={{
-              title: "All Categories",
+              headerShown: false,
             }}
           />
 
           <Stack.Screen name="MealsOverview" component={MealsOverviewScreen} />
 
-          <Stack.Screen name="MealDetail" component={MealDetailScreen} />
+          <Stack.Screen
+            name="MealDetail"
+            component={MealDetailScreen}
+            options={{ title: "About the Meal" }}
+          />
         </Stack.Navigator>
       </NavigationContainer>
     </>
