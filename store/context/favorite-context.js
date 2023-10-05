@@ -9,7 +9,6 @@ export const FavoritesContext = createContext({
 export const FavoritesContextProvider = ({ children }) => {
   const [favoriteMealsIds, setFavoriteMailsIds] = useState([]);
 
-  console.log(favoriteMealsIds);
   const addFavorite = (id) => {
     setFavoriteMailsIds((currentFavIds) => [...currentFavIds, id]);
   };
